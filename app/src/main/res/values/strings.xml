@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MvRxWanAndroid</string>
+    <string name="navigation_view_header_title">WanAndroid</string>
 </resources>
