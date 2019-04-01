@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+  <item
+    android:id="@+id/action_home"
+    android:enabled="true"
+    android:icon="@drawable/ic_home_black_24dp"
+    android:title="@string/home"/>
+  <item
+    android:id="@+id/action_knowledge_system"
+    android:enabled="true"
+    android:icon="@drawable/ic_knowledge_black_24dp"
+    android:title="@string/knowledge_system"/>
+  <item
+    android:id="@+id/action_wechat"
+    android:enabled="true"
+    android:icon="@drawable/ic_wechat_black_24dp"
+    android:title="@string/wechat"/>
+  <item
+    android:id="@+id/action_navigation"
+    android:enabled="true"
+    android:icon="@drawable/ic_explore_black_24dp"
+    android:title="@string/explore"
+    />
+  <item
+    android:id="@+id/action_project"
+    android:enabled="true"
+    android:icon="@drawable/ic_project_black_24dp"
+    android:title="@string/project"
+    />
 </menu>

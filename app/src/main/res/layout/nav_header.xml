@@ -5,14 +5,14 @@
              android:background="?attr/colorPrimary"
              android:gravity="bottom"
              android:orientation="vertical"
-             android:padding="16dp"
-             android:theme="@style/ThemeOverlay.AppCompat.Dark"
->
+             android:padding="16dp">
+             <!--android:theme="@style/ThemeOverlay.AppCompat.Dark"-->
+
     <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/ic_android_black_24dp" />
 
     <TextView
             android:layout_width="wrap_content"
