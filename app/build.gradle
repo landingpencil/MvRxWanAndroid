@@ -24,7 +24,16 @@ android {
     }
     productFlavors {
     }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
+
+
 
 kapt {
     correctErrorTypes = true
@@ -46,9 +55,8 @@ dependencies {
     def nav_version = "2.0.0"
     implementation "androidx.navigation:navigation-fragment:$nav_version" // For Kotlin use navigation-fragment-ktx
     implementation "androidx.navigation:navigation-ui:$nav_version" // For Kotlin use navigation-ui-ktx
-   // implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
+    // implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     //implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
-
 
     // Rx
     def rxjava_version = "2.2.8"
@@ -59,7 +67,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
     implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
     implementation "com.jakewharton.rxrelay2:rxrelay:$rxrelay_version"
-
 
     // Koin
     def koin_version = "2.0.0-rc-2"
@@ -72,16 +79,15 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glide_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
-
     // Networking
     def retrofit_version = "2.5.0"
     def okhttp_version = "3.14.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-   // implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
-    //implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
-
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.moshi:moshi-kotlin:1.8.0"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
 //    def appCompatVersion = '1.0.2'
 //    def recyclerViewVersion = "1.0.0"
@@ -97,5 +103,9 @@ dependencies {
     kapt "com.airbnb.android:epoxy-processor:$epoxyVersion"
 
     implementation 'com.airbnb.android:mvrx:0.7.2'
+
+
+
+    implementation 'cn.bingoogolapple:bga-banner:2.2.5@aar'
 
 }
