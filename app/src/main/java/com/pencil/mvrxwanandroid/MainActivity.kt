@@ -21,8 +21,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        apiservice.getBanners().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
-            Consumer { textcontent.text = it.toString() })
+
+
+
+
+
+
+
+
+
+
+
+/*        apiservice.getBanners().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
+            Consumer { textcontent.text = it.toString() })*/
 
 
 

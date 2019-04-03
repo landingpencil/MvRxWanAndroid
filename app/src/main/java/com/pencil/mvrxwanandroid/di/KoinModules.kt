@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit
 fun getOkHttpClient(): OkHttpClient {
 
     val builder = OkHttpClient().newBuilder()
-/*    val httpLoggingInterceptor = HttpLoggingInterceptor()
+    val httpLoggingInterceptor = HttpLoggingInterceptor()
     if (BuildConfig.DEBUG) {
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
     } else {
@@ -31,19 +31,19 @@ fun getOkHttpClient(): OkHttpClient {
 
     //设置 请求的缓存的大小跟位置
     val cacheFile = File(MvRxWanAndroidApplication.context.cacheDir, "cache")
-    val cache = Cache(cacheFile, HttpConstant.MAX_CACHE_SIZE)*/
+    val cache = Cache(cacheFile, HttpConstant.MAX_CACHE_SIZE)
 
-    builder.run {
-/*        addInterceptor(httpLoggingInterceptor)
+    builder.apply {
+        addInterceptor(httpLoggingInterceptor)
         addInterceptor(HeaderInterceptor())
         addInterceptor(SaveCookieInterceptor())
         addInterceptor(CacheInterceptor())
-        cache(cache)  //添加缓存*/
+        cache(cache)  //添加缓存
         connectTimeout(HttpConstant.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
         readTimeout(HttpConstant.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
         writeTimeout(HttpConstant.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
         retryOnConnectionFailure(true) // 错误重连
-        // cookieJar(CookieManager())
+
     }
     return builder.build()
 }
