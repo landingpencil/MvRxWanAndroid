@@ -107,5 +107,6 @@ dependencies {
 
 
     implementation 'cn.bingoogolapple:bga-banner:2.2.5@aar'
-
+    implementation 'com.orhanobut:logger:2.2.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
