@@ -2,6 +2,7 @@ package com.pencil.mvrxwanandroid.core
 
 import android.app.Application
 import android.content.Context
+import com.pencil.mvrxwanandroid.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -26,14 +27,14 @@ class MvRxWanAndroidApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-         instance = this
+        instance = this
         context = applicationContext
-       startKoin {
-           androidLogger(Level.DEBUG)
-           androidContext(this@MvRxWanAndroidApplication)
-           androidFileProperties()
-           modules()
-       }
+        startKoin {
+            androidLogger(Level.DEBUG)
+            androidContext(this@MvRxWanAndroidApplication)
+            androidFileProperties()
+            modules(appModule)
+        }
     }
 
 

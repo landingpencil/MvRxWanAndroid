@@ -17,18 +17,22 @@
 
 
         <!--<com.google.android.material.appbar.AppBarLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
 
-            <!--<androidx.appcompat.widget.Toolbar-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="?attr/actionBarDivider"-->
-                    <!--app:layout_scrollFlags="scroll|enterAlways|snap"/>-->
+        <!--<androidx.appcompat.widget.Toolbar-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarDivider"-->
+        <!--app:layout_scrollFlags="scroll|enterAlways|snap"/>-->
 
 
         <!--</com.google.android.material.appbar.AppBarLayout>-->
 
         <!--<fragment android:layout_width="match_parent" android:layout_height="match_parent"/>-->
+        <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:id="@+id/textcontent"
+        android:text="32434234"
+        />
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

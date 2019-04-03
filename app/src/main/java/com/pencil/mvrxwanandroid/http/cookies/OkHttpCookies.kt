@@ -6,7 +6,7 @@ import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 import java.io.Serializable
 
-class OkHttpCookies : Serializable {
+class OkHttpCookies  {
 
     private lateinit var cookies: Cookie
     private var clientCookies: Cookie? = null
