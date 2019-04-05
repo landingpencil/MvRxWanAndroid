@@ -1,37 +1,38 @@
 package com.pencil.mvrxwanandroid.ui.fragment
 
-import android.content.Context
-import android.net.Uri
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-
-import com.pencil.mvrxwanandroid.R
+import com.airbnb.mvrx.fragmentViewModel
+import com.pencil.mvrxwanandroid.api.Article
+import com.pencil.mvrxwanandroid.core.BaseFragment
+import com.pencil.mvrxwanandroid.core.simpleController
+import com.pencil.mvrxwanandroid.viewmodels.HomeViewModel
+import com.pencil.mvrxwanandroid.views.basicRow
+import com.pencil.mvrxwanandroid.views.loadingRow
 
 
+class HomeFragment : BaseFragment() {
 
-class HomeFragment : Fragment() {
+    private val viewModel: HomeViewModel by fragmentViewModel()
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+
+
+    override fun epoxyController() = simpleController(viewModel) {state ->
+
+        state.articles.forEach{ article: Article ->
+
+            basicRow {
+                id(article.id)
+                title(article.title)
+            }
+
+
+            }
+        loadingRow {
+            id("loading${state.articles.size}")
+            onBind { _, _, _ -> viewModel.fetchNextPage() }
+        }
 
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
-
-
-
-
-
 
 
 }

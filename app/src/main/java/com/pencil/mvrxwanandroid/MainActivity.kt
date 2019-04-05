@@ -20,25 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*        apiservice.getBanners().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
-            Consumer { textcontent.text = it.toString() })*/
-
-
-
-
-
+        setSupportActionBar(toolbar)
 
     }
 }
