@@ -2,12 +2,11 @@ package com.pencil.mvrxwanandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.pencil.mvrxwanandroid.api.ApiService
-import com.pencil.mvrxwanandroid.api.Banner
-import com.pencil.mvrxwanandroid.api.HttpResult
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Consumer
-import io.reactivex.schedulers.Schedulers
+
 
 import  kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
@@ -20,6 +19,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        val navController = findNavController(R.id.nav_host)
+
+        val appBarConfiguration = AppBarConfiguration(navController.graph, drawer_layout)
+
+        toolbar.setupWithNavController(navController, appBarConfiguration)
+
+
+        bottom_navigation_view.setupWithNavController(navController)
+
 
     }
 }

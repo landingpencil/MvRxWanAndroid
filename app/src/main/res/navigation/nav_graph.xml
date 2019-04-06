@@ -6,4 +6,13 @@
 
     <fragment android:id="@+id/homeFragment" android:name="com.pencil.mvrxwanandroid.ui.fragment.HomeFragment"
               android:label="fragment_home" tools:layout="@layout/fragment_home"/>
+    <fragment android:id="@+id/knowledgeFragment" android:name="com.pencil.mvrxwanandroid.ui.fragment.KnowledgeFragment"
+              android:label="fragment_knowledge" tools:layout="@layout/fragment_knowledge"/>
+    <fragment android:id="@+id/weChatFragment" android:name="com.pencil.mvrxwanandroid.ui.fragment.WeChatFragment"
+              android:label="fragment_we_chat" tools:layout="@layout/fragment_we_chat"/>
+    <fragment android:id="@+id/navigationFragment"
+              android:name="com.pencil.mvrxwanandroid.ui.fragment.NavigationFragment"
+              android:label="fragment_navigation" tools:layout="@layout/fragment_navigation"/>
+    <fragment android:id="@+id/projectFragment" android:name="com.pencil.mvrxwanandroid.ui.fragment.ProjectFragment"
+              android:label="fragment_project" tools:layout="@layout/fragment_project"/>
 </navigation>
