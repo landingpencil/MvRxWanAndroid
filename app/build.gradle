@@ -91,16 +91,13 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
-
-
     //epoxy mvrx
     def epoxyVersion = "3.3.1"
     implementation("com.airbnb.android:epoxy:$epoxyVersion") { exclude group: 'com.android.support' }
     kapt "com.airbnb.android:epoxy-processor:$epoxyVersion"
-    implementation"com.airbnb.android:epoxy-databinding:$epoxyVersion"
+    implementation "com.airbnb.android:epoxy-databinding:$epoxyVersion"
 
     implementation 'com.airbnb.android:mvrx:0.7.2'
-
 
 
     implementation 'cn.bingoogolapple:bga-banner:2.2.5@aar'

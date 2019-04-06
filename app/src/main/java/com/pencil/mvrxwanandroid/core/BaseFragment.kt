@@ -7,16 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
 import androidx.navigation.fragment.findNavController
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.airbnb.mvrx.BaseMvRxFragment
 import com.airbnb.mvrx.MvRx
 import com.pencil.mvrxwanandroid.R
 
 
-
 abstract class BaseFragment : BaseMvRxFragment() {
 
     protected lateinit var recyclerView: EpoxyRecyclerView
+    protected lateinit var swipRefreshLayout: SwipeRefreshLayout
 
 
     protected val epoxyController by lazy { epoxyController() }
@@ -32,6 +33,8 @@ abstract class BaseFragment : BaseMvRxFragment() {
             .apply {
                 recyclerView = findViewById(R.id.recycler_view)
                 recyclerView.setController(epoxyController)
+                swipRefreshLayout = findViewById(R.id.swipe_refresh_layout)
+                swipRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent, R.color.Blue, R.color.Yellow)
             }
     }
 
