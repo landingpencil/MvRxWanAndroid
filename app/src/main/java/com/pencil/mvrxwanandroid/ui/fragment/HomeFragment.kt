@@ -2,6 +2,7 @@ package com.pencil.mvrxwanandroid.ui.fragment
 
 import com.airbnb.mvrx.fragmentViewModel
 import com.pencil.mvrxwanandroid.api.Article
+import com.pencil.mvrxwanandroid.articalItem
 import com.pencil.mvrxwanandroid.core.BaseFragment
 import com.pencil.mvrxwanandroid.core.simpleController
 import com.pencil.mvrxwanandroid.viewmodels.HomeViewModel
@@ -20,12 +21,11 @@ class HomeFragment : BaseFragment() {
 
         state.articles.forEach{ article: Article ->
 
-            basicRow {
+
+            articalItem {
                 id(article.id)
-                title(article.title)
+                article(article)
             }
-
-
             }
         loadingRow {
             id("loading${state.articles.size}")

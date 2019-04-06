@@ -24,9 +24,7 @@ class HomeViewModel(
 ) : MvRxViewModel<HomeState>(initialsState) {
 
     init {
-
        fetchNextPage()
-
     }
 
     fun requestBanner() {
