@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <item
-    android:id="@+id/homeFragment"
+    android:id="@+id/home_fragment"
     android:enabled="true"
     android:icon="@drawable/ic_home_black_24dp"
     android:title="@string/home"/>
   <item
-    android:id="@+id/knowledgeFragment"
+    android:id="@+id/knowledge_fragment"
     android:enabled="true"
     android:icon="@drawable/ic_knowledge_black_24dp"
     android:title="@string/knowledge_system"/>
   <item
-    android:id="@+id/weChatFragment"
+    android:id="@+id/wechat_fragment"
     android:enabled="true"
     android:icon="@drawable/ic_wechat_black_24dp"
     android:title="@string/wechat"/>
   <item
-    android:id="@+id/navigationFragment"
+    android:id="@+id/navigation_fragment"
     android:enabled="true"
     android:icon="@drawable/ic_explore_black_24dp"
     android:title="@string/explore"
     />
   <item
-    android:id="@+id/projectFragment"
+    android:id="@+id/project_fragment"
     android:enabled="true"
     android:icon="@drawable/ic_project_black_24dp"
     android:title="@string/project"
