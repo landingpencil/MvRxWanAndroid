@@ -1,20 +1,15 @@
 package com.pencil.mvrxwanandroid
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
-import com.pencil.mvrxwanandroid.api.ApiService
-
-
-import  kotlinx.android.synthetic.main.activity_main.*
-import org.koin.android.ext.android.inject
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
-    val apiservice: ApiService by inject()
-
+    private lateinit var appBarConfiguration: AppBarConfiguration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host)
 
-        val appBarConfiguration = AppBarConfiguration(
+        appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.home_fragment,
                 R.id.knowledge_fragment,
@@ -35,7 +30,13 @@ class MainActivity : AppCompatActivity() {
         toolbar.setupWithNavController(navController, appBarConfiguration)
 
         bottom_navigation_view.setupWithNavController(navController)
+        nav_view.setupWithNavController(navController)
 
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
