@@ -7,7 +7,10 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+<<<<<<< HEAD
             android:id="@+id/text_view"
+=======
+>>>>>>> 8fab216a2c6ea07c9f4cf30ab73f08fc133a172d
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/hello_blank_fragment"/>
