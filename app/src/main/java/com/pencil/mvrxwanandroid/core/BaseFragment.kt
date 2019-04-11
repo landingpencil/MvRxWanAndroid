@@ -7,18 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
 import androidx.navigation.fragment.findNavController
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.airbnb.epoxy.EpoxyRecyclerView
 import com.airbnb.mvrx.BaseMvRxFragment
 import com.airbnb.mvrx.MvRx
 import com.pencil.mvrxwanandroid.R
+import kotlinx.android.synthetic.main.fragment_base_mvrx.*
 
 
 abstract class BaseFragment : BaseMvRxFragment() {
-
-    protected lateinit var recyclerView: EpoxyRecyclerView
-    protected lateinit var swipRefreshLayout: SwipeRefreshLayout
-
 
     protected val epoxyController by lazy { epoxyController() }
 
@@ -30,16 +25,15 @@ abstract class BaseFragment : BaseMvRxFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_base_mvrx, container, false)
-            .apply {
-                recyclerView = findViewById(R.id.recycler_view)
-                recyclerView.setController(epoxyController)
-                swipRefreshLayout = findViewById(R.id.swipe_refresh_layout)
-                swipRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent, R.color.Blue, R.color.Yellow)
-            }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recycler_view.setController(epoxyController)
+        swipe_refresh_layout.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent, R.color.Blue, R.color.Yellow)
+    }
     override fun invalidate() {
-        recyclerView.requestModelBuild()
+        recycler_view.requestModelBuild()
     }
 
     abstract fun epoxyController(): MvRxEpoxyController

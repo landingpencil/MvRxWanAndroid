@@ -1,12 +1,13 @@
 package com.pencil.mvrxwanandroid
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
-import com.pencil.mvrxwanandroid.ui.fragment.WebViewFragmentArgs
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,26 +30,21 @@ class MainActivity : AppCompatActivity() {
         bottom_navigation_view.setupWithNavController(navController)
         nav_view.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-
-    /*        when(destination.id){
-               is  ->
-
-
-
-
-
-
-            }*/
-        /*    arguments as WebViewFragmentArgs
-            arguments.title*/
-
+            app_bar_layout.setExpanded(true, false)
+            //val isWebViewFragment = destination.isWebViewDestination()
+            if (destination.isWebViewDestination()) {
+                bottom_navigation_view.visibility = View.GONE
+                toolbar.setTitle(arguments?.getString("title"))
+            } else {
+                bottom_navigation_view.visibility = View.VISIBLE
+            }
         }
-
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+    private fun NavDestination.isWebViewDestination() = id == R.id.web_view_fragment|| id == R.id.knowledge_details_fragment
 }

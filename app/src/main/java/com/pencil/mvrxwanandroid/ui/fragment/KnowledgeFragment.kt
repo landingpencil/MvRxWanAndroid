@@ -2,15 +2,14 @@ package com.pencil.mvrxwanandroid.ui.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.findNavController
 import com.airbnb.mvrx.fragmentViewModel
-import com.airbnb.mvrx.withState
 import com.pencil.mvrxwanandroid.core.BaseFragment
 import com.pencil.mvrxwanandroid.core.simpleController
-import com.pencil.mvrxwanandroid.viewmodels.HomeState
 import com.pencil.mvrxwanandroid.viewmodels.KnowledgeState
 import com.pencil.mvrxwanandroid.viewmodels.KnowledgeViewModel
-import com.pencil.mvrxwanandroid.views.basicRow
 import com.pencil.mvrxwanandroid.views.knowledgeTreeItem
+import kotlinx.android.synthetic.main.fragment_base_mvrx.*
 
 
 class KnowledgeFragment : BaseFragment() {
@@ -19,10 +18,10 @@ class KnowledgeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        swipRefreshLayout.setOnRefreshListener { viewModel.requestknowledgeTreeBodys() }
+        swipe_refresh_layout.setOnRefreshListener { viewModel.requestknowledgeTreeBodys() }
 
         viewModel.selectSubscribe(KnowledgeState::isLoading) {
-            swipRefreshLayout.isRefreshing = it
+            swipe_refresh_layout.isRefreshing = it
         }
 
     }
@@ -31,9 +30,13 @@ class KnowledgeFragment : BaseFragment() {
 
         state.knowledgeTreeBodys.forEach {
             knowledgeTreeItem {
-
                 id(it.id)
                 knowledgeTree(it)
+                clickListener{v ->
+                    val actionKnowledgeFragmentToKnowledgeDetailsFragment =
+                        KnowledgeFragmentDirections.actionKnowledgeFragmentToKnowledgeDetailsFragment(it.name, it)
+                    v.findNavController().navigate(actionKnowledgeFragmentToKnowledgeDetailsFragment)
+                }
             }
         }
 

@@ -5,23 +5,52 @@
             android:id="@+id/nav_graph"
             app:startDestination="@id/home_fragment">
 
-    <fragment android:id="@+id/home_fragment" android:name="com.pencil.mvrxwanandroid.ui.fragment.HomeFragment"
-              android:label="@string/home" tools:layout="@layout/fragment_home"/>
+
+    <action android:id="@+id/action_global_web_view_fragment"
+            app:destination="@id/web_view_fragment"/>
+
+    <fragment android:id="@+id/home_fragment"
+              android:name="com.pencil.mvrxwanandroid.ui.fragment.HomeFragment"
+              android:label="@string/home"
+              tools:layout="@layout/fragment_home"/>
+
     <fragment android:id="@+id/knowledge_fragment"
               android:name="com.pencil.mvrxwanandroid.ui.fragment.KnowledgeFragment"
-              android:label="@string/knowledge_system" tools:layout="@layout/fragment_knowledge"/>
-    <fragment android:id="@+id/wechat_fragment" android:name="com.pencil.mvrxwanandroid.ui.fragment.WeChatFragment"
-              android:label="@string/wechat" tools:layout="@layout/fragment_we_chat"/>
+              android:label="@string/knowledge_system"
+              tools:layout="@layout/fragment_knowledge">
+        <action android:id="@+id/action_knowledge_fragment_to_knowledge_details_fragment"
+                app:destination="@id/knowledge_details_fragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/wechat_fragment"
+              android:name="com.pencil.mvrxwanandroid.ui.fragment.WeChatFragment"
+              android:label="@string/wechat"
+              tools:layout="@layout/fragment_we_chat"/>
+
     <fragment android:id="@+id/navigation_fragment"
               android:name="com.pencil.mvrxwanandroid.ui.fragment.NavigationFragment"
-              android:label="@string/explore" tools:layout="@layout/fragment_navigation"/>
-    <fragment android:id="@+id/project_fragment" android:name="com.pencil.mvrxwanandroid.ui.fragment.ProjectFragment"
-              android:label="@string/project" tools:layout="@layout/fragment_project"/>
-    <fragment android:id="@+id/web_view_fragment" android:name="com.pencil.mvrxwanandroid.ui.fragment.WebViewFragment"
-              android:label="WebViewFragment" tools:layout="@layout/fragment_web_view">
+              android:label="@string/explore"
+              tools:layout="@layout/fragment_navigation"/>
+
+    <fragment android:id="@+id/project_fragment"
+              android:name="com.pencil.mvrxwanandroid.ui.fragment.ProjectFragment"
+              android:label="@string/project"
+              tools:layout="@layout/fragment_project"/>
+
+    <fragment android:id="@+id/web_view_fragment"
+              android:name="com.pencil.mvrxwanandroid.ui.fragment.WebViewFragment"
+              android:label="WebViewFragment"
+              tools:layout="@layout/fragment_web_view">
         <argument android:name="id" app:argType="integer"/>
         <argument android:name="title" app:argType="string"/>
         <argument android:name="url" app:argType="string"/>
     </fragment>
-    <action android:id="@+id/action_global_web_view_fragment" app:destination="@id/web_view_fragment"/>
+
+    <fragment android:id="@+id/knowledge_details_fragment"
+              android:name="com.pencil.mvrxwanandroid.ui.fragment.KnowledgeDetailsFragment"
+              android:label="KnowledgeDetailsFragment"
+              tools:layout="@layout/fragment_knowledge_details">
+        <argument android:name="title" app:argType="string"/>
+        <argument android:name="contentData" app:argType="com.pencil.mvrxwanandroid.api.KnowledgeTreeBody"/>
+    </fragment>
 </navigation>

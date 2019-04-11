@@ -2,12 +2,14 @@ package com.pencil.mvrxwanandroid.views
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.widget.FrameLayout
-import android.widget.TextView
+import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import com.pencil.mvrxwanandroid.R
 import com.pencil.mvrxwanandroid.api.KnowledgeTreeBody
+import kotlinx.android.synthetic.main.item_knowledge_tree.view.*
 
 @ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
 class KnowledgeTreeItem @JvmOverloads constructor(
@@ -16,22 +18,18 @@ class KnowledgeTreeItem @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private val titleFirst by lazy { findViewById<TextView>(R.id.title_first) }
-    private val titleSecond by lazy { findViewById<TextView>(R.id.title_second) }
-
-
     init {
         inflate(context, R.layout.item_knowledge_tree, this)
     }
 
     @ModelProp
     fun setKnowledgeTree(knowledgeTree: KnowledgeTreeBody?) {
+        title_first.text = knowledgeTree?.name
+        title_second.text = knowledgeTree?.children?.joinToString("   ", transform = { it.name })
+    }
 
-
-        titleFirst.text = knowledgeTree?.name
-
-        titleSecond.text = knowledgeTree?.children?.joinToString("   ", transform = { it.name })
-
-
+    @CallbackProp
+    fun setClickListener(listener: View.OnClickListener?) {
+        setOnClickListener(listener)
     }
 }

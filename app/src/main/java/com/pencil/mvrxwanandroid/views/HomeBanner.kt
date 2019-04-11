@@ -42,8 +42,6 @@ class HomeBanner @JvmOverloads constructor(
         inflate(context, R.layout.item_home_banner, this)
     }
 
-
-
     @ModelProp
     fun setBanners(banners: List<Banner>) {
 

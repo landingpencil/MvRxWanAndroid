@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".ui.fragment.WebViewFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.fragment.WebViewFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-<<<<<<< HEAD
-            android:id="@+id/text_view"
-=======
->>>>>>> 8fab216a2c6ea07c9f4cf30ab73f08fc133a172d
+    <WebView
+            android:id="@+id/web_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:scrollbarSize="3dp"
+            android:scrollbarThumbVertical="@color/md_grey_700"/>
 
-</FrameLayout>
+    <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_alignParentTop="true"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/process_bg"
+            android:visibility="gone"/>
+
+</RelativeLayout>

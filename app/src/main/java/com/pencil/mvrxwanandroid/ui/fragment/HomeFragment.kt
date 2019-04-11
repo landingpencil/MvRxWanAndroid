@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.findNavController
 import com.airbnb.mvrx.fragmentViewModel
-import com.pencil.mvrxwanandroid.R
-import com.pencil.mvrxwanandroid.api.Article
 import com.pencil.mvrxwanandroid.articalItem
 import com.pencil.mvrxwanandroid.core.BaseFragment
 import com.pencil.mvrxwanandroid.core.simpleController
@@ -13,6 +11,8 @@ import com.pencil.mvrxwanandroid.viewmodels.HomeState
 import com.pencil.mvrxwanandroid.viewmodels.HomeViewModel
 import com.pencil.mvrxwanandroid.views.LoadingRowModel_
 import com.pencil.mvrxwanandroid.views.homeBanner
+import kotlinx.android.synthetic.main.fragment_base_mvrx.*
+import org.koin.android.ext.android.inject
 
 
 class HomeFragment : BaseFragment() {
@@ -21,9 +21,9 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        swipRefreshLayout.setOnRefreshListener { viewModel.requestHomeData() }
+        swipe_refresh_layout.setOnRefreshListener { viewModel.requestHomeData() }
         viewModel.selectSubscribe(HomeState::isLoading) {
-            swipRefreshLayout.isRefreshing = it
+            swipe_refresh_layout.isRefreshing = it
         }
     }
 

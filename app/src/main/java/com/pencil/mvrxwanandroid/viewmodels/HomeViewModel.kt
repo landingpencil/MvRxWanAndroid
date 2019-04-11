@@ -40,7 +40,9 @@ class HomeViewModel(
                 bannersIsLoading = false
                 setState { copy(isLoading = bannersIsLoading && articlesIsLoading) }
             }
-            .execute { copy(banners = it()?.data ?: emptyList(), requestBanners = it) }
+            .execute {
+                copy(banners = it()?.data ?: emptyList(), requestBanners = it)
+            }
 
     }
 
