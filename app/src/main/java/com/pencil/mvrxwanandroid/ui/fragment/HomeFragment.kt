@@ -2,18 +2,17 @@ package com.pencil.mvrxwanandroid.ui.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.findNavController
 import com.airbnb.mvrx.fragmentViewModel
+import com.pencil.mvrxwanandroid.R
 import com.pencil.mvrxwanandroid.api.Article
-import com.pencil.mvrxwanandroid.api.Banner
 import com.pencil.mvrxwanandroid.articalItem
 import com.pencil.mvrxwanandroid.core.BaseFragment
 import com.pencil.mvrxwanandroid.core.simpleController
 import com.pencil.mvrxwanandroid.viewmodels.HomeState
 import com.pencil.mvrxwanandroid.viewmodels.HomeViewModel
 import com.pencil.mvrxwanandroid.views.LoadingRowModel_
-import com.pencil.mvrxwanandroid.views.basicRow
 import com.pencil.mvrxwanandroid.views.homeBanner
-import com.pencil.mvrxwanandroid.views.loadingRow
 
 
 class HomeFragment : BaseFragment() {
@@ -36,10 +35,15 @@ class HomeFragment : BaseFragment() {
 
         }
 
-        state.articles.forEach { article: Article ->
+        state.articles.forEach {
             articalItem {
-                id(article.id)
-                article(article)
+                id(it.id)
+                article(it)
+                onClick { v ->
+                    val actionGlobalWebViewFragment =
+                        WebViewFragmentDirections.actionGlobalWebViewFragment(it.id, it.title, it.link)
+                    v.findNavController().navigate(actionGlobalWebViewFragment)
+                }
             }
         }
 

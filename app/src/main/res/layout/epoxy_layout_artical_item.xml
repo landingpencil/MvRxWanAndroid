@@ -10,13 +10,14 @@
         <variable
                 name="article"
                 type="com.pencil.mvrxwanandroid.api.Article"/>
-        <!--        <variable
-                        name="onClick"
-                        type="android.view.View.OnClickListener" />-->
+        <variable
+                name="onClick"
+                type="android.view.View.OnClickListener"/>
 
     </data>
     <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
+            android:onClick="@{onClick}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"

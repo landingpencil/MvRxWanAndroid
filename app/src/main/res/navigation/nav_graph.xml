@@ -16,4 +16,11 @@
               android:label="@string/explore" tools:layout="@layout/fragment_navigation"/>
     <fragment android:id="@+id/project_fragment" android:name="com.pencil.mvrxwanandroid.ui.fragment.ProjectFragment"
               android:label="@string/project" tools:layout="@layout/fragment_project"/>
+    <fragment android:id="@+id/web_view_fragment" android:name="com.pencil.mvrxwanandroid.ui.fragment.WebViewFragment"
+              android:label="WebViewFragment" tools:layout="@layout/fragment_web_view">
+        <argument android:name="id" app:argType="integer"/>
+        <argument android:name="title" app:argType="string"/>
+        <argument android:name="url" app:argType="string"/>
+    </fragment>
+    <action android:id="@+id/action_global_web_view_fragment" app:destination="@id/web_view_fragment"/>
 </navigation>
