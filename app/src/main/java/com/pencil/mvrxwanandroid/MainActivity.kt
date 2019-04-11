@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
+import com.pencil.mvrxwanandroid.ui.fragment.WebViewFragmentArgs
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,9 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
         val navController = findNavController(R.id.nav_host)
-
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.home_fragment,
@@ -26,11 +25,24 @@ class MainActivity : AppCompatActivity() {
                 R.id.project_fragment
             ), drawer_layout
         )
-
         toolbar.setupWithNavController(navController, appBarConfiguration)
-
         bottom_navigation_view.setupWithNavController(navController)
         nav_view.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+
+    /*        when(destination.id){
+               is  ->
+
+
+
+
+
+
+            }*/
+        /*    arguments as WebViewFragmentArgs
+            arguments.title*/
+
+        }
 
 
     }

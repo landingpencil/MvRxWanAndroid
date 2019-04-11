@@ -6,6 +6,9 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -97,7 +100,7 @@ dependencies {
     kapt "com.airbnb.android:epoxy-processor:$epoxyVersion"
     implementation "com.airbnb.android:epoxy-databinding:$epoxyVersion"
 
-    implementation 'com.airbnb.android:mvrx:0.7.2'
+    implementation 'com.airbnb.android:mvrx:1.0.0'
 
 
     implementation 'cn.bingoogolapple:bga-banner:2.2.5@aar'
