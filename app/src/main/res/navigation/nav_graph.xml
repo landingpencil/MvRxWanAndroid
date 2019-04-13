@@ -49,7 +49,7 @@
     <fragment android:id="@+id/knowledge_details_fragment"
               android:name="com.pencil.mvrxwanandroid.ui.fragment.KnowledgeDetailsFragment"
               android:label="KnowledgeDetailsFragment"
-              tools:layout="@layout/fragment_knowledge_details">
+              tools:layout="@layout/tablayout_viewpager">
         <argument android:name="title" app:argType="string"/>
         <argument android:name="contentData" app:argType="com.pencil.mvrxwanandroid.api.KnowledgeTreeBody"/>
     </fragment>

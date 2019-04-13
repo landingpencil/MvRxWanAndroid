@@ -24,12 +24,12 @@ class KnowledgeTreeItem @JvmOverloads constructor(
 
     @ModelProp
     fun setKnowledgeTree(knowledgeTree: KnowledgeTreeBody?) {
-        title_first.text = knowledgeTree?.name
-        title_second.text = knowledgeTree?.children?.joinToString("   ", transform = { it.name })
+        titleFirst.text = knowledgeTree?.name
+        titleSecond.text = knowledgeTree?.children?.joinToString("   ", transform = { it.name })
     }
 
     @CallbackProp
     fun setClickListener(listener: View.OnClickListener?) {
-        setOnClickListener(listener)
+        cardView.setOnClickListener(listener)
     }
 }

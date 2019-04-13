@@ -4,7 +4,6 @@ package com.pencil.mvrxwanandroid.ui.fragment
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.navigation.fragment.navArgs
-import com.google.android.material.tabs.TabLayout
 import com.pencil.mvrxwanandroid.R
 import com.pencil.mvrxwanandroid.api.Knowledge
-import kotlinx.android.synthetic.main.fragment_knowledge_details.*
+import kotlinx.android.synthetic.main.tablayout_viewpager.*
 
 
 class KnowledgeDetailsFragment : Fragment() {
@@ -23,7 +21,6 @@ class KnowledgeDetailsFragment : Fragment() {
     val args: KnowledgeDetailsFragmentArgs by navArgs()
 
     lateinit var viewPagerAdapter: KnowledgePagerAdapter
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,23 +32,19 @@ class KnowledgeDetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View? = inflater.inflate(R.layout.tablayout_viewpager, container, false)
 
-        return inflater.inflate(R.layout.fragment_knowledge_details, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view_pager.apply {
+        viewPager.apply {
             adapter = viewPagerAdapter
             offscreenPageLimit = args.contentData.children.size
         }
-        tab_layout.apply {
-            setupWithViewPager(view_pager)
+        tabLayout.apply {
+            setupWithViewPager(viewPager)
         }
     }
-
-
 }
 
 
@@ -69,13 +62,12 @@ class KnowledgePagerAdapter(val list: List<Knowledge>, fm: FragmentManager?) : F
     override fun getItem(position: Int): Fragment = fragments[position]
 
 
-
     override fun getCount(): Int = list.size
 
     override fun getPageTitle(position: Int): CharSequence? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         Html.fromHtml(list[position].name, Html.FROM_HTML_MODE_LEGACY)
     } else {
-       Html.fromHtml(list[position].name)
+        Html.fromHtml(list[position].name)
     }
 
 

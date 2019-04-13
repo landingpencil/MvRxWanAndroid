@@ -51,6 +51,16 @@ fun getOkHttpClient(): OkHttpClient {
 
 val appModule = module {
 
+    single {
+        HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG){
+                HttpLoggingInterceptor.Level.BODY
+            }else{
+                HttpLoggingInterceptor.Level.NONE
+            }
+        }
+    }
+
     single { getOkHttpClient() }
 
     single { get<Retrofit>().create(ApiService::class.java) }
@@ -67,3 +77,11 @@ val appModule = module {
 
 
 }
+
+
+/*
+var retrofit = Retrofit.Builder()
+    .baseUrl("http://example.com")
+    .addCallAdapterFactory(ObserveOnMainCallAdapterFactory(observeOn))
+    .addCallAdapterFactory(RxJavaCallAdapterFactory.createWithScheduler(io()))
+    .build()*/

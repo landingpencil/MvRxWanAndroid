@@ -8,12 +8,6 @@ open class BaseBean{
     var errorCode : Int = 0
     var errorMsg : String = ""
 }
-//data class HttpResult<T>(@Json(name = "data") val data: T,
-//                         @Json(name = "errorCode") val errorCode: Int,
-//                         @Json(name = "errorMsg") val errorMsg: String)
-
-
-
 
 data class HttpResult<T>(@Json(name = "data") val data : T) : BaseBean()
 

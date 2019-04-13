@@ -52,7 +52,7 @@ data class KnowledgeContentState(
 
 class KnowledgeContentViewModel(
     initialsState: KnowledgeContentState,
-    private val apiService: ApiService
+    val apiService: ApiService
 ) : MvRxViewModel<KnowledgeContentState>(initialsState) {
 
     init {
